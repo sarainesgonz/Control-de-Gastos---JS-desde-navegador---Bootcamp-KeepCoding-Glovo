@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Gastos</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;800&family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- <style> @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;800&family=Open+Sans&family=PT+Sans:wght@400;700&display=swap'); </style> -->
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Control de gastos</h1>
+    </header>
+    <main class="container">
+    <h2>Tus ahorros</h2>
+    <div class="money-display">
+        <p id="savings">0.00</p>
+        <p class="currency">€</p>
+    </div>
+    
+    <section class="money-display">
+        <div>
+            <h2>Ingresos</h2>
+            <div class="money">
+                <p id="income">0.00</p>
+                <p class="currency">€</p>
+            </div>
+        </div>
+        <div>
+            <h2>Gastos</h2>
+            <div class="money">
+                <p id="expenses">0.00</p>
+                <p class="currency">€</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h3>Historial de movimientos</h3>
+        <div id="recordOfTransactions"></div>
+    </section>
+    <section >
+        <h3>Añadir nueva transacción</h3>
+        <form novalidate id="transactionsForm">
+            <div class="label descript">
+                <label for="description">Concepto</label>
+                <input id="description" type="text" placeholder="Ingresa el concepto..." >
+            </div>
+            <div class="label quantity">
+                <label for="amount">Cantidad</label>            
+                <input id="amount" type="text" placeholder="Introduce la cantidad...">
+            </div>
+            <div class="label">
+                <label for="typeTransaction">Tipo de transacción</label>
+                <div class="radio-options">
+                    <div>
+                        <label>Ingreso</label>
+                        <input required id="deposit" name="option" type="radio" value="Ingreso">
+                    </div>
+                   <div>
+                        <label >Gasto</label>
+                        <input required id="moneySpent" name="option" type="radio" value="Gasto">
+                    </div>
+                </div>  
+            </div>
+            <button type="submit" id="addTransaction">Añadir transacción</button>
+        </form>
+        
+    </section>
+</main>
+<footer class="footer">Sara Gonzalez - Bootcamp Mujeres en Tech </footer>
+    <script src="./index.js"></script>
+</body>
+</html>
