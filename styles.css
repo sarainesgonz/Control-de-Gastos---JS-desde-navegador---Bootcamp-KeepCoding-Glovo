@@ -1,0 +1,170 @@
+:root {
+    --primary: #D76A03;
+    --buttons: #EC9F05;
+    --income: #1b9718;
+    --expenses: #BF3100;
+    --buttonHover: #F5BB00;
+    --white: white;
+    --headings: 'Merienda', cursive;
+    --paragraphs: 'Open Sans', sans-serif; 
+
+}
+
+
+h1{
+    margin-top: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: var(--headings);
+    font-size: 2rem;
+}
+
+h2, h3 {
+    margin-top: 1rem;
+    font-weight: 700;
+    font-family: var(--headings);
+}
+
+p {
+    margin-left: 5px;
+    line-height: 1.5rem;
+    font-family: var(--paragraphs);
+}
+
+.header, .footer {
+    background-color: var(--primary);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.footer {
+    font-family: var(--paragraphs);
+}
+
+.container{
+    padding: 1rem;
+    margin: 2rem 3rem;
+    box-shadow: 1px 1px 52px 14px rgba(235,223,112,0.67);
+    text-align: center;
+}
+
+.money-display, .money {
+    display: flex;
+    justify-content: center;
+    margin: 1.2rem 2rem;  
+}
+
+#income {
+    color: var(--income);
+}
+
+#expenses {
+    color: var(--expenses);
+}
+
+#savings, 
+#expenses, 
+#income, .currency {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+#addTransaction {
+    background-color: var(--buttons);
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 7px;
+    border-color: antiquewhite;
+    border-radius: 7px;
+    width: 100%;
+    font-family: var(--headings);
+}
+
+#addTransaction:hover {
+    cursor: pointer;
+    background-color: var(--buttonHover);
+    transform: scale(1.1);
+}
+
+#recordOfTransactions button {
+    background-color: white;
+    border: .3px solid var(--primary);
+    border-radius: 7px;
+    padding: .3rem 4rem;
+}
+
+#recordOfTransactions button:hover {
+    transform: scale(1.1);
+}
+
+#recordOfTransactions {
+    margin-bottom: 1.3rem;
+    text-align: center; 
+}
+
+#transactionsForm .label{ 
+    padding: 2vh;
+    font-family: var(--paragraphs)
+}
+
+#description, #amount{
+    margin-top: 1vh;
+    padding: 5px;
+    width: 90%;
+}
+
+.radio-options {
+    margin: 1rem ;
+}
+
+.radio-options div {
+    display: inline-flex;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 992px) {
+    .container {
+        margin:  3rem 9rem;
+        padding: 2rem;
+    }
+    #transactionsForm  {
+        margin: 1rem 5rem;
+    }
+    #transactionsForm .quantity, .descript {
+        display: inline-block;
+    }
+    #addTransaction {
+        width: auto;
+        padding: 1rem;
+    }
+    .money-display, .money {
+        margin: 1.2rem 7rem;  
+    }
+    #recordOfTransactions > div {
+        margin: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 3fr 4fr 2fr 1fr;
+        grid-template-areas: "barra tipo concepto cantidad boton";
+        text-align: left;
+    }
+    #recordOfTransactions > div:nth-child(1) {
+        grid-area: barra;
+    }
+    #recordOfTransactions > div:nth-child(2) {
+        grid-area: tipo;
+    }
+    #recordOfTransactions > div:nth-child(3) {
+        grid-area: concepto;
+    } 
+    #recordOfTransactions > div:nth-child(4) {
+        grid-area: cantidad;
+    }
+    #recordOfTransactions > div:nth-child(4) {
+        grid-area: boton;
+    }
+    #recordOfTransactions button {
+        padding: 1px;
+    }
+}
