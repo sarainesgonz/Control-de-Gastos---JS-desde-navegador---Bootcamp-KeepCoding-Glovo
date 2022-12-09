@@ -90,7 +90,7 @@ function deleteTransaction(transactionId) {
             arrayTransactions.splice(arrayTransactions.indexOf(transaction), 1)
         }
     })
-    console.log(arrayTransactions)
+    // console.log(arrayTransactions)
     updateTransactionsInfo(arrayTransactions)
 
     localStorage.setItem('transactionRecords', JSON.stringify(arrayTransactions))
