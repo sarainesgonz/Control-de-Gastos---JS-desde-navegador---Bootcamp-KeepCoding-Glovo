@@ -54,8 +54,58 @@ function updateTransactionsInfo(arrayTransactions) {
     }
 
     savings = parseFloat(income - expenses)
-    
+
     savingsElement.textContent = savings.toFixed(2);
     expensesElement.textContent = expenses.toFixed(2);
     incomeElement.textContent = income.toFixed(2)
 }
+
+
+function displayTransaction() {
+    const historyOfTransactions = document.querySelector('#recordOfTransactions')
+    historyOfTransactions.innerHTML = "";
+    arrayTransactions.forEach(transaction => {
+        let transactionElement = document.createElement('div');
+        let transactionContent = `
+        <hr>
+        <p>Tipo: ${transaction.typeOfMovement}</p>
+        <p>Concepto: ${transaction.description}</p>
+        <p>${transaction.amountOfMoney}€</p>
+        <button onclick="deleteTransaction(${transaction.id})">	
+        &#x274c;</button>
+    `
+        transactionElement.innerHTML = transactionContent;
+        historyOfTransactions.prepend(transactionElement)
+        transactionElement.setAttribute("id", transaction.id);
+    })
+}
+
+
+function deleteTransaction(transactionId) {
+    const transactionElement = document.getElementById(transactionId);
+    transactionElement.remove()
+
+    arrayTransactions.forEach(transaction => {
+        if (transaction.id === transactionId) {
+            arrayTransactions.splice(arrayTransactions.indexOf(transaction), 1)
+        }
+    })
+    console.log(arrayTransactions)
+    updateTransactionsInfo(arrayTransactions)
+
+    localStorage.setItem('transactionRecords', JSON.stringify(arrayTransactions))
+}
+
+
+ function getRecordsFromLocalStorage() {
+     const transactionRecordsStored = localStorage.getItem('transactionRecords');
+     const arrayTransactionsStored = JSON.parse(transactionRecordsStored)
+     updateTransactionsInfo(arrayTransactionsStored)
+}
+
+function app() {
+    // getRecordsFromLocalStorage() //ayudame a completar este paso Edu, porfa.No funciona si abro en otro navegador en donde no hay nada en localstorage
+    newTransactions()
+}
+
+app()
